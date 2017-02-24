@@ -4,23 +4,23 @@
 constructor only dependency injection for JavaScript (ES5)
 
 
-            window.onload = $emplore.run;
+            window.onload = emplore.run;
 
-            $emplore.register('item1', [], function () {  //modulename, array of module names that we need, the module itself
+            emplore.register('item1', [], function () {  //modulename, array of module names that we need, the module itself
 
                 return {
                     name: 'a red staff'
                 };
             });
 
-            $emplore.register('item2', [], function () {
+            emplore.register('item2', [], function () {
 
                 return {
                     name: 'a fire spell'
                 };
             });
 
-            $emplore.register('mage', ['item1', 'item2'], function (item1, item2) {
+            emplore.register('mage', ['item1', 'item2'], function (item1, item2) {
 
                 alert('a wild mage appears with ' + item1.name + ' and ' + item2.name);
 
