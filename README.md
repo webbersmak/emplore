@@ -1,7 +1,7 @@
 # emplore js
 
 
-simple constructor only dependency injection for JavaScript (ES5)
+constructor only dependency injection for JavaScript (ES5)
 
 
             window.onload = $emplore.run;
