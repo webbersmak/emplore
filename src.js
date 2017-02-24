@@ -1,4 +1,4 @@
-        var $emplore = {
+        var emplore = {
         
             register: function(name, needs, run) {
 
