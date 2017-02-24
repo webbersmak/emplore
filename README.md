@@ -25,3 +25,6 @@ constructor only dependency injection for JavaScript (ES5)
                 alert('a wild mage appears with ' + item1.name + ' and ' + item2.name);
 
             });
+
+
+license: CC0
