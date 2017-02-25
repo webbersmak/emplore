@@ -35,7 +35,7 @@
 
                             for (var i = 0; i < module.needs.length; i++) {  //moo
                                 if (!activeModules[module.needs[i]]) {  //moo needs foo
-                                    activateModule(getModuleToActivate(module.requires[i]));  //moo needs foo
+                                    activateModule(getModuleToActivate(module.needs[i]));  //moo needs foo
                                 }
                             }
 
