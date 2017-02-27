@@ -70,5 +70,6 @@
             },
             run: function () {
                 window.container.run();
+                delete window.container;
             }
         };
