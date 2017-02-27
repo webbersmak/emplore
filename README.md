@@ -6,7 +6,7 @@ constructor only dependency injection for JavaScript (ES5)
 
             window.onload = emplore.run;
 
-            emplore.register('item1', [], function () {  //modulename, array of module names that we need, the module itself
+            emplore.register('item1', [], function () {  // this module name, array of module names we need, the module itself
 
                 return {
                     name: 'a white staff'
@@ -24,9 +24,6 @@ constructor only dependency injection for JavaScript (ES5)
 
                 alert('a wild mage appears with ' + item1.name + ' and ' + item2.name);
                 
-                return {
-                   name: 'gandalf'
-                };
             });
 
 
