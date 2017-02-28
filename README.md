@@ -12,7 +12,7 @@ emplore.register("item1", [], function () {  // module name, array of modules we
     };
 });
 
-emplore.register('item2', [], function () {
+emplore.register("item2", [], function () {
 
     return {
         name: "a fire spell"
