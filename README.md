@@ -1,5 +1,4 @@
-# emplore js
-
+# emplore js ![](https://summonstrike.com/images/15.png "")
 
 constructor only dependency injection for JavaScript (ES5)
 
