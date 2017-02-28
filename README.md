@@ -26,4 +26,6 @@ emplore.register("mage", ["item1", "item2"], function (item1, item2) {
 });
 ```
 
+All modules are registered as singletons. Register a factory module if you need multiple instances of a class.
+
 license: CC0
