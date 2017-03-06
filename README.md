@@ -3,8 +3,6 @@
 constructor only dependency injection for JavaScript (ES5)
 
 ```javascript
-window.onload = emplore.run;
-
 emplore.register("item1", [], function () {  // module name, array of modules we need, the module itself
 
     return {
