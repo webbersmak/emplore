@@ -24,9 +24,7 @@ emplore.register("mage", ["item1", "item2"], function (item1, item2) {
 });
 ```
 
-Intellisense is working in VS2015. Simply put "emplore.intellisense.js" into the same directory as "emplore.js". Then, add "/// <reference path="emplore.js" />" to the top of "_references.js"
-
-
+Enabling Intellisense: put "emplore.intellisense.js" into the same directory as "emplore.js". Then, add "/// <reference path="emplore.js" />" to the top of "_references.js"
 
 
 All modules are registered as singletons. Register a factory module if you need multiple instances of a class.
