@@ -27,6 +27,7 @@ emplore.register("mage", ["item1", "item2"], function (item1, item2) {
 Enable Intellisense: put "emplore.intellisense.js" into the same directory as "emplore.js". Then add "<reference path="emplore.js" />" to the top of "_references.js".
 
 
+The main module does not need to return anything. The "window.onload" event starts the activation of the modules.
 All modules are registered as singletons. Register a factory module if you need multiple instances of a class.
 
 license: MIT License, Copyright (c) 2017 webbersmak
