@@ -29,4 +29,5 @@ Enable Intellisense: put "emplore.intellisense.js" into the same directory as "e
 
 All modules are registered as singletons. Register a factory module if you need multiple instances of a class.
 
-license: CC0
+license: MIT License 
+Copyright (c) 2017 webbersmak
