@@ -1,6 +1,6 @@
 # emplore js ![](https://summonstrike.com/images/15.png "")
 
-constructor only dependency injection for JavaScript (ES5) + Intellisense
+Usage:
 
 ```javascript
 register("item1", [], function () {  // module name, array of modules we need, the module itself
