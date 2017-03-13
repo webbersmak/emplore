@@ -1,5 +1,6 @@
 function register(name, needs, run) {
-
+    "use strict";
+    
     if (!window.container) {
 
         window.onload = function () {
@@ -17,7 +18,7 @@ function register(name, needs, run) {
                         return modulesToActivate[i];
                     }
                 }
-            };
+            }
 
             function removeModuleToActivate(moduleName) {
                 for (var i = 0; i < modulesToActivate.length; i++) {
@@ -26,7 +27,7 @@ function register(name, needs, run) {
                         return;
                     }
                 }
-            };
+            }
 
             function activateModule(module) {
                 var moduleName = module.name;
@@ -48,7 +49,7 @@ function register(name, needs, run) {
 
                 activeModules[moduleName] = module.run.apply(window, args);
                 removeModuleToActivate(moduleName);
-            };
+            }
 
             return {
                 add: function (name, needs, run) {
@@ -69,4 +70,4 @@ function register(name, needs, run) {
     }
 
     window.container.add(name, needs, run);
-};
+}
