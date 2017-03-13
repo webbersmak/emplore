@@ -1,6 +1,6 @@
 function register(name, needs, run) {
     "use strict";
-    
+
     if (!window.container) {
 
         window.onload = function () {
@@ -20,45 +20,27 @@ function register(name, needs, run) {
                 }
             }
 
-            function removeModuleToActivate(moduleName) {
-                for (var i = 0; i < modulesToActivate.length; i++) {
-                    if (modulesToActivate[i].name == moduleName) {
-                        modulesToActivate.splice(i, 1);
-                        return;
-                    }
-                }
-            }
-
             function activateModule(module) {
-                var moduleName = module.name;
 
-                if (activeModules[moduleName]) {
+                if (activeModules[module.name]) {
                     return;
                 }
 
+                var args = [];
                 module.needs.forEach(function (targetModuleName) {
                     if (!activeModules[targetModuleName]) {
                         activateModule(getModuleToActivate(targetModuleName));
                     }
-                });
-
-                var args = [];
-                module.needs.forEach(function (targetModuleName) {
                     args.push(activeModules[targetModuleName]);
                 });
 
-                activeModules[moduleName] = module.run.apply(window, args);
-                removeModuleToActivate(moduleName);
+                activeModules[module.name] = module.run.apply(window, args);
+                modulesToActivate.splice(modulesToActivate.indexOf(module), 1);
             }
 
             return {
                 add: function (name, needs, run) {
-                    if (needs.length) {
-                        modulesToActivate.push({ name: name, needs: needs, run: run });
-                    }
-                    else {
-                        activeModules[name] = run();
-                    }
+                    modulesToActivate.push({ name: name, needs: needs, run: run });
                 },
                 run: function () {
                     while (modulesToActivate.length) {
