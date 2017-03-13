@@ -35,16 +35,16 @@ function register(name, needs, run) {
                     return;
                 }
 
-                for (var i = 0; i < module.needs.length; i++) {
-                    if (!activeModules[module.needs[i]]) {
-                        activateModule(getModuleToActivate(module.needs[i]));
+                module.needs.forEach(function (targetModuleName) {
+                    if (!activeModules[targetModuleName]) {
+                        activateModule(getModuleToActivate(targetModuleName));
                     }
-                }
+                });
 
                 var args = [];
-                for (var i = 0; i < module.needs.length; i++) {
-                    args.push(activeModules[module.needs[i]]);
-                }
+                module.needs.forEach(function (targetModuleName) {
+                    args.push(activeModules[targetModuleName]);
+                });
 
                 activeModules[moduleName] = module.run.apply(window, args);
                 removeModuleToActivate(moduleName);
@@ -52,7 +52,7 @@ function register(name, needs, run) {
 
             return {
                 add: function (name, needs, run) {
-                    if (needs.length > 0) {
+                    if (needs.length) {
                         modulesToActivate.push({ name: name, needs: needs, run: run });
                     }
                     else {
@@ -60,7 +60,7 @@ function register(name, needs, run) {
                     }
                 },
                 run: function () {
-                    while (modulesToActivate.length > 0) {
+                    while (modulesToActivate.length) {
                         activateModule(modulesToActivate[0]);
                     }
                 }
