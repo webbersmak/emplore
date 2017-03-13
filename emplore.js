@@ -8,9 +8,7 @@ function register(name, needs, run) {
             delete window.container;
         };
 
-        window.container = (function () {
-            var activeModules = [];
-            var modulesToActivate = [];
+        window.container = (function (activeModules, modulesToActivate) {
 
             function getModuleToActivate(moduleName) {
                 for (var i = 0; i < modulesToActivate.length; i++) {
@@ -50,7 +48,7 @@ function register(name, needs, run) {
                     }
                 }
             };
-        })();
+        })([],[]);
     }
 
     window.container.add(name, needs, run);
