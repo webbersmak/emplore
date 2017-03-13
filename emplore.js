@@ -14,7 +14,7 @@ function register(name, needs, run) {
 
             function getModuleToActivate(moduleName) {
                 for (var i = 0; i < modulesToActivate.length; i++) {
-                    if (modulesToActivate[i].name == moduleName) {
+                    if (modulesToActivate[i][0] == moduleName) {
                         return modulesToActivate[i];
                     }
                 }
@@ -22,25 +22,27 @@ function register(name, needs, run) {
 
             function activateModule(module) {
 
-                if (activeModules[module.name]) {
+                //name = 0, needs = 1, run = 2
+
+                if (activeModules[module[0]]) {
                     return;
                 }
 
                 var args = [];
-                module.needs.forEach(function (targetModuleName) {
+                module[1].forEach(function (targetModuleName) {
                     if (!activeModules[targetModuleName]) {
                         activateModule(getModuleToActivate(targetModuleName));
                     }
                     args.push(activeModules[targetModuleName]);
                 });
 
-                activeModules[module.name] = module.run.apply(window, args);
+                activeModules[module[0]] = module[2].apply(window, args);
                 modulesToActivate.splice(modulesToActivate.indexOf(module), 1);
             }
 
             return {
                 add: function (name, needs, run) {
-                    modulesToActivate.push({ name: name, needs: needs, run: run });
+                    modulesToActivate.push([name, needs, run]);
                 },
                 run: function () {
                     while (modulesToActivate.length) {
