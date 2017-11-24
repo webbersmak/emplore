@@ -2,33 +2,25 @@
 
 Usage:
 
-```javascript
-register("item1", [], function () {  // module name, array of modules we need, the module itself
+```typescript
+class item1 {
+    public name = "a white staff";
+}
 
-    return {
-        name: "a white staff"
-    };
-});
+class item2 {
+    public name = "a fire spell";
+}
 
-register("item2", [], function () {
+class mage {
+    constructor(first: item1, second: item2) {
+        alert("a wild mage appears with " + first.name + " and " + second.name);
+    }
+}
 
-    return {
-        name: "a fire spell"
-    };
-});
-
-register("mage", ["item1", "item2"], function (item1, item2) {
-
-    alert("a wild mage appears with " + item1.name + " and " + item2.name);
-
-});
+register("item1", [], item1);
+register("item2", [], item2);
+register("mage", ["item1", "item2"], mage);
 ```
-
-Intellisense VS2015: put "emplore.intellisense.js" into the same directory as "emplore.js". Then add "emplore.js" to the top of "_references.js".
-
-![](https://i.imgur.com/T8iB8fA.png "")
-
-Intellisense VS2017: add a reference to "emplore.d.ts"
 
 The main module does not need to return anything. The "window.onload" event starts the modules.
 All modules are registered as singletons. Create a factory module if you need multiple instances of a class.
